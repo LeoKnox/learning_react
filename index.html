@@ -14,9 +14,17 @@
     <body>
         <div id="root"></div>
         <script type="text/babel">
-            let city = "Seattle";
+            const Hello = ({library, message}) => {
+                return (
+                    <div className="heading">
+                        <h1>Welcome to {library}</h1>
+                        <p>{message}</p>
+                    </div>
+                )
+            }
+
             ReactDOM.render(
-                <h1 className="heading">Hello {city}</h1>,
+                <Hello library="React" message="Enjoys!" />,
                 document.getElementById("root")
             );
         </script>
