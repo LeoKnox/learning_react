@@ -14,17 +14,22 @@
     <body>
         <div id="root"></div>
         <script type="text/babel">
-            const Hello = ({library, message}) => {
-                return (
-                    <div className="heading">
-                        <h1>Welcome to {library}</h1>
-                        <p>{message}</p>
-                    </div>
-                )
-            }
+            const lakeList =[
+                {id: 1, name: "Lake Washington", trailhead: "Anywhere"},
+                {id: 2, name: "Lake Geneva", trailhead: "Switzerland"},
+                {id: 3, name: "Lake Spider", trailhead: "Web"}
+            ];
+
+            const App = ({lakes}) => (
+                <ul>
+                    {lakes.map(lake =>
+                        <li key={lake.id}>{lake.name}, Trailhead: {lake.trailhead}</li>
+                    ) }
+                </ul>
+            )
 
             ReactDOM.render(
-                <Hello library="React" message="Enjoys!" />,
+                <App lakes={lakeList}/>,
                 document.getElementById("root")
             );
         </script>
