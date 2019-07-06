@@ -1,15 +1,24 @@
-import React from "react"
-
-function App() {
-    return(
-        <div>
-    <form>
-        <input type="checkbox"/><span>work hard</span><br/>
-        <input type="checkbox"/><span>work harder</span><br/>
-        <input type="checkbox"/><span>do pull-up</span><br/>
-    </form>
-    </div>
-    )
+class App extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            isLoggedIn: false
+        }
+    }
+    
+    render() {
+        let wordDisplay
+        if (this.state.isLoggedIn === true) {
+            wordDisplay = "in"
+        } else {
+            wordDisplay = "out"
+        }
+        return (
+            <div>
+                <h1>You are currently logged {wordDisplay}</h1>
+            </div>
+        )
+    }
 }
 
 export default App
