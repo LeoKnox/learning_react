@@ -1,16 +1,13 @@
 import React from "react"
-import TodoItem from "./TodoItem"
+import Product from "./Product"
+import productsData from "./vschoolProducts"
 
 function App() {
+    const productComponents = productsData.map(item => <Product key={item.id} product={item}/>)
+    
     return (
         <div>
-            <TodoItem />
-            
-            <TodoItem />
-            
-            <TodoItem />
-            
-            <TodoItem />
+            {productComponents}
         </div>
     )
 }
