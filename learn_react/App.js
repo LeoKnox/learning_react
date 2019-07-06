@@ -1,6 +1,6 @@
 import React from "react"
 import Product from "./Product"
-import productsData from "./vschoolProducts"
+import productsData from "./schoolProducts"
 
 function App() {
     const productComponents = productsData.map(item => <Product key={item.id} product={item}/>)
