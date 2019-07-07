@@ -1,23 +1,38 @@
+import React from "react"
+import TodoItem from "./TodoItem"
+import todosData from "./todosData"
+
 class App extends React.Component {
     constructor() {
         super()
         this.state = {
-            isLoggedIn: false
+            todos: todosData
         }
+        this.handleChange = this.handleChange.bind(this)
+    }
+    
+    handleChange(id) {
+        this.setState(prevState => {
+            const updatedTodos = prevState.todos.map(todo => {
+                if (todo.id === id) {
+                    todo.completed = !todo.completed
+                }
+                return todo
+            })
+            return {
+                todos: updatedTodos
+            }
+        })
     }
     
     render() {
-        let wordDisplay
-        if (this.state.isLoggedIn === true) {
-            wordDisplay = "in"
-        } else {
-            wordDisplay = "out"
-        }
+        const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item} handleChange={this.handleChange}/>)
+        
         return (
-            <div>
-                <h1>You are currently logged {wordDisplay}</h1>
+            <div className="todo-list">
+                {todoItems}
             </div>
-        )
+        )    
     }
 }
 
