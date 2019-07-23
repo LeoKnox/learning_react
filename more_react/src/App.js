@@ -6,11 +6,17 @@ import Main from './Main';
 import Foot from './Foot';
 
 function App() {
+  let ground = { color:"blue" };
+
+  const runSomething = () => {
+    console.log("something");
+  }
+
   return (
     <div className="App">
-      <Head />
+      <Head {...runSomething} />
       <Nav />
-      <Main />
+      <Main {...ground}/>
       <Foot />
     </div>
   )

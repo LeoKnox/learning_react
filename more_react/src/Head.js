@@ -3,7 +3,13 @@ import React, {Component} from "react"
 class Head extends Component {
     render() {
         return (
-            <h1>Welcome to React Page</h1>
+            <div>
+                <h1>Welcome to React Page</h1>
+                <form>
+                <input type="text" />
+                <input type="submit" onSubmit="this.runSomething()"></input>
+                </form>
+            </div>
         )
     }
 }
