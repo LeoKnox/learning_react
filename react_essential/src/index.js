@@ -8,10 +8,16 @@ let dungeonData = {
     gold: 100
 }
 
-class DungeonStat extends Component {
-    render() {
-        const {totalrooms, hallways, monsters, gold} = this.props
-        return (
+const getPercent = decimal => {
+    return decimal+'mpr'
+}
+
+const calcMonster = (total, rooms) => {
+    return getPercent(total/rooms)
+}
+
+const DungeonStat = ({totalrooms, hallways, monsters, gold}) => {
+    return (
             <section>
                 <div>
                     <p>Total Rooms: {totalrooms}</p>
@@ -23,11 +29,10 @@ class DungeonStat extends Component {
                     <p>Total Monsters: {monsters}</p>
                 </div>
                 <div>
-                    <p>Gold: {gold}</p>
+                    <p>Gold: {calcMonster(monsters, totalrooms)}</p>
                 </div>
             </section>
-        )
-    }
+    )
 }
 
 render (
