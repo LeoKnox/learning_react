@@ -6,7 +6,9 @@ import imdata from './DataOne'
 
 class App extends React.Component {
   changeData = (e) => {
-    console.log('net tiki')
+    e.preventDefault()
+    imdata.name = "tiki kitten"
+    console.log(imdata.name)
   }
 
   changes = (e) => {
