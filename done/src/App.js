@@ -4,11 +4,15 @@ import Main from './Main'
 import Side from './Side'
 import imdata from './DataOne'
 
+this.setState((imdata) = ({
+  dataName: imdata.name
+}))
+
 class App extends React.Component {
   changeData = (e) => {
     e.preventDefault()
     imdata.name = "tiki kitten"
-    console.log(imdata.name)
+    console.log(dataName)
   }
 
   changes = (e) => {
