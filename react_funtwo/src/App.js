@@ -5,12 +5,18 @@ import Home from './Home'
 import Second from './Second'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      currentPage: <Home />
+    }
+  }
+
   render() {
     return (
       <div id="app">
         <Menu />
-        <Home />
-        <Second />
+        {this.state.currentPage}
       </div>
     )
   }
